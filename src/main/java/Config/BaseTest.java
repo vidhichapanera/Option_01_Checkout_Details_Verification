@@ -13,9 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     public static WebDriver driver;
-    public static String browser;
-    public static String browserVersion;
-    public static String platform;
 
     public BaseTest() {
     }
