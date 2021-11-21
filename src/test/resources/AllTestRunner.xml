@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="tests" thread-count="1">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="baseURL" value="https://qa-practical-test.myshopify.com/"/>
+    <test name="Option_01_Checkout_Details_Verification">
+
+        <classes>
+            <class name="LoginTS.LoginTC">
+                <methods>
+                    <include name="checkOutDetailsVerification"/>
+                </methods>
+            </class>
+
+
+        </classes>
+    </test>
+</suite>
