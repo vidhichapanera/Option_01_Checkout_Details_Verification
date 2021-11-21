@@ -30,10 +30,10 @@ public class BaseTest {
      * @param headless
      * @throws Exception
      */
-    @Parameters({"browserName","baseURL","headless"})
+    @Parameters({"browserName","baseURL"})
     @BeforeClass(alwaysRun = true)
     public synchronized void launchBrowser(Method method, @Optional("chrome") String browserName, @Optional("https://accounts.google.com/signin")String baseURL, @Optional("false")String headless) throws Exception {
-        this.getDriver(browserName,headless);
+        this.getDriver(browserName);
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         this.driver.get(baseURL);
 
@@ -52,10 +52,9 @@ public class BaseTest {
     /**
      *
      * @param browserName
-     * @param headless
      * @return
      */
-    public synchronized WebDriver getDriver(String browserName,String headless) {
+    public synchronized WebDriver getDriver(String browserName) {
 
         if (browserName.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\Chrome\\chromedriver.exe");//Version 96.0.4664.45
