@@ -24,15 +24,13 @@ public class BaseTest {
 
     /**
      *
-     * @param method
      * @param browserName
      * @param baseURL
-     * @param headless
      * @throws Exception
      */
     @Parameters({"browserName","baseURL"})
     @BeforeClass(alwaysRun = true)
-    public synchronized void launchBrowser(Method method, @Optional("chrome") String browserName, @Optional("https://accounts.google.com/signin")String baseURL, @Optional("false")String headless) throws Exception {
+    public synchronized void launchBrowser(@Optional("chrome") String browserName, @Optional("https://accounts.google.com/signin")String baseURL) throws Exception {
         this.getDriver(browserName);
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         this.driver.get(baseURL);
